@@ -1,0 +1,1177 @@
+```html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ของขวัญสุดพิเศษสำหรับคนพิเศษ 💕</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Kanit', 'sans-serif'],
+        cute: ['Mali', 'cursive'],
+      },
+      colors: {
+        'pastel-pink': '#FFD1DC',
+        'soft-pink': '#FFE4E8',
+        'deep-pink': '#FF7597',
+        'warm-cream': '#FFFDF9',
+        'choco': '#5C4033',
+      }
+    }
+  }
+}
+</script>
+<style>
+  body {
+    background-color: #FFFDF9;
+    background-image: radial-gradient(#FFD1DC 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: #5C4033;
+    font-family: 'Kanit', sans-serif;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cute-font { font-family: 'Mali', cursive; }
+
+  /* Envelope Animation */
+  .envelope-wrapper { perspective: 1000px; cursor: pointer; position: relative; }
+  .envelope {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    background: #FFB6C1;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(255, 117, 151, 0.22);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+  .envelope:hover { transform: translateY(-3px); }
+  .envelope-flap {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 90px;
+    background: #FF8FA3;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+    z-index: 3;
+  }
+  .envelope.open .envelope-flap { transform: rotateX(180deg); z-index: 1; }
+  .envelope-pocket {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 105px;
+    background: #FFC2CD;
+    clip-path: polygon(0 15%, 50% 45%, 100% 15%, 100% 100%, 0 100%);
+    z-index: 2;
+  }
+  .letter-sheet {
+    position: absolute;
+    left: 14px; right: 14px; bottom: 10px;
+    height: 140px;
+    background: #FFFDF9;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.5s ease 0.15s;
+    z-index: 1;
+  }
+  .envelope.open .letter-sheet {
+    transform: translateY(-48px);
+    z-index: 4;
+  }
+
+  /* Postcard Flip */
+  .flip-card { perspective: 1000px; height: 285px; cursor: pointer; position: relative; }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(92, 64, 51, 0.12);
+    border: 2px solid #FFD1DC;
+  }
+  .flip-card-back {
+    background: linear-gradient(135deg, #FFF0F3 0%, #FFE4E8 100%);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 2px dashed #FF7597;
+  }
+
+  /* Cassette Tape Spin */
+  @keyframes spinReel {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .spinning { animation: spinReel 2.8s linear infinite; }
+
+  /* Gacha Shake */
+  @keyframes shakeBox {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    20% { transform: rotate(-10deg) scale(1.06); }
+    40% { transform: rotate(10deg) scale(1.06); }
+    60% { transform: rotate(-10deg) scale(1.06); }
+    80% { transform: rotate(10deg) scale(1.06); }
+  }
+  .shaking { animation: shakeBox 0.55s ease-in-out infinite; }
+
+  /* Floating Hearts */
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(0.8); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(1.4); opacity: 0; }
+  }
+  .floating-heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: floatUp 3s ease-out forwards;
+  }
+</style>
+</head>
+<body class="min-h-screen flex flex-col pb-24">
+
+<!-- Header & Music Controls -->
+<header class="sticky top-0 z-40 bg-warm-cream/95 backdrop-blur-md border-b border-pastel-pink/60 px-4 py-3 flex items-center justify-between shadow-xs">
+  <div class="flex items-center gap-2">
+    <span class="text-2xl">🧸</span>
+    <div>
+      <h1 class="font-bold text-deep-pink text-base leading-tight cute-font">Our Little World</h1>
+      <p class="text-[11px] text-choco/70">พื้นที่ความทรงจำของเราสองคน</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-1.5">
+    <label class="cursor-pointer bg-soft-pink hover:bg-pastel-pink text-choco text-xs px-2.5 py-1.5 rounded-full font-medium transition flex items-center gap-1 shadow-xs">
+      <span>📂 เพลง</span>
+      <input type="file" id="bgmFileInput" accept="audio/*" class="hidden" onchange="handleBgmUpload(event)">
+    </label>
+    <button id="bgmToggleBtn" onclick="toggleBackgroundMusic()" class="bg-deep-pink hover:bg-pink-500 text-white text-xs px-3 py-1.5 rounded-full font-medium transition flex items-center gap-1 shadow-xs">
+      <span id="bgmIcon">🔇</span>
+      <span id="bgmText">เปิดเพลง</span>
+    </button>
+  </div>
+</header>
+
+<!-- Toast Notification Banner -->
+<div id="toastBanner" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden bg-choco/90 text-white text-xs px-4 py-2 rounded-full shadow-lg cute-font transition-opacity"></div>
+
+<!-- Hidden Players -->
+<audio id="bgAudioPlayer" loop preload="auto"></audio>
+<div id="ytPlayerContainer" class="hidden"><div id="ytPlayer"></div></div>
+
+<!-- Main Content -->
+<main class="flex-1 max-w-lg w-full mx-auto px-4 pt-5">
+
+  <!-- 1. Love Counter & Couple Photos -->
+  <section id="sec-home" class="tab-section space-y-5">
+    <div class="bg-white rounded-3xl p-5 shadow-md border border-pastel-pink/60 text-center">
+      <div class="inline-block bg-soft-pink text-deep-pink text-xs font-semibold px-3 py-1 rounded-full mb-3 cute-font">
+        💕 เราอยู่ด้วยกันมานานแค่ไหนแล้วนะ?
+      </div>
+      
+      <!-- Main Photo -->
+      <div class="relative w-56 h-56 mx-auto mb-4 rounded-2xl overflow-hidden border-4 border-pastel-pink shadow-inner bg-soft-pink/40">
+        <img id="mainCoupleImg" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/400x400/FFD1DC/5C4033?text=Our+Photo'" alt="รูปคู่ของเรา" class="w-full h-full object-cover">
+        <label class="absolute bottom-2 right-2 bg-white/95 hover:bg-white text-choco text-xs px-2.5 py-1 rounded-full shadow cursor-pointer font-medium transition">
+          📷 เปลี่ยนรูปคู่
+          <input type="file" accept="image/*" class="hidden" onchange="updateMainPhoto(event)">
+        </label>
+      </div>
+
+      <h2 class="text-xl font-bold text-choco cute-font mb-1">เค้า ❤️ เธอ</h2>
+      <p class="text-xs text-choco/60 mb-4">ตั้งแต่วันที่ 17 ธันวาคม 2568</p>
+
+      <!-- Real-time Counter -->
+      <div class="grid grid-cols-4 gap-2 text-center">
+        <div class="bg-soft-pink/70 rounded-2xl p-2.5">
+          <div id="cntDays" class="text-2xl font-bold text-deep-pink">0</div>
+          <div class="text-[11px] text-choco/80">วัน</div>
+        </div>
+        <div class="bg-soft-pink/70 rounded-2xl p-2.5">
+          <div id="cntHours" class="text-2xl font-bold text-deep-pink">00</div>
+          <div class="text-[11px] text-choco/80">ชั่วโมง</div>
+        </div>
+        <div class="bg-soft-pink/70 rounded-2xl p-2.5">
+          <div id="cntMinutes" class="text-2xl font-bold text-deep-pink">00</div>
+          <div class="text-[11px] text-choco/80">นาที</div>
+        </div>
+        <div class="bg-soft-pink/70 rounded-2xl p-2.5">
+          <div id="cntSeconds" class="text-2xl font-bold text-deep-pink">00</div>
+          <div class="text-[11px] text-choco/80">วินาที</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Extra Couple Photo Album -->
+    <div class="bg-white rounded-3xl p-4 shadow-sm border border-pastel-pink/50">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="font-bold text-sm text-choco cute-font">📸 อัลบั้มรูปคู่เพิ่มเติม</h3>
+        <label class="cursor-pointer bg-deep-pink text-white text-xs px-3 py-1 rounded-full font-medium hover:bg-pink-500 transition shadow-xs">
+          ➕ เพิ่มรูปคู่
+          <input type="file" accept="image/*" multiple class="hidden" onchange="addGalleryPhotos(event)">
+        </label>
+      </div>
+      <div id="galleryGrid" class="grid grid-cols-3 gap-2">
+        <p class="col-span-3 text-center text-xs text-choco/50 py-4">กดปุ่ม "+ เพิ่มรูปคู่" เพื่อเก็บรูปน่ารักๆ ของเราไว้ตรงนี้ได้เลยนะ 💗</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Love Letters -->
+  <section id="sec-letters" class="tab-section hidden space-y-4">
+    <div class="flex items-center justify-between mb-2">
+      <div>
+        <h2 class="text-xl font-bold text-deep-pink cute-font">💌 ซองจดหมายความในใจ</h2>
+        <p class="text-xs text-choco/70">แตะที่ซองจดหมายเพื่อเปิดอ่านข้อความ</p>
+      </div>
+      <button onclick="openAddLetterModal()" class="bg-deep-pink hover:bg-pink-500 text-white text-xs px-3 py-1.5 rounded-full font-medium shadow-xs transition shrink-0">
+        ➕ เพิ่มจดหมาย
+      </button>
+    </div>
+    <div id="lettersContainer" class="space-y-4"></div>
+  </section>
+
+  <!-- 3. Couple Jigsaw Puzzle 3x3 -->
+  <section id="sec-puzzle" class="tab-section hidden space-y-4">
+    <div class="bg-white rounded-3xl p-5 shadow-md border border-pastel-pink/60 text-center">
+      <h2 class="text-xl font-bold text-deep-pink cute-font mb-1">🧩 จิ๊กซอว์รูปคู่ของเรา</h2>
+      <p class="text-xs text-choco/70 mb-3">แตะชิ้นส่วน 2 ชิ้นเพื่อสลับตำแหน่งให้เป็นภาพที่สมบูรณ์!</p>
+      
+      <div class="flex justify-center gap-2 mb-4">
+        <label class="cursor-pointer bg-soft-pink hover:bg-pastel-pink text-choco text-xs px-3 py-1.5 rounded-full font-medium transition">
+          🖼️ เลือกรูปทำจิ๊กซอว์
+          <input type="file" accept="image/*" class="hidden" onchange="loadCustomPuzzle(event)">
+        </label>
+        <button onclick="shufflePuzzle()" class="bg-deep-pink hover:bg-pink-500 text-white text-xs px-3 py-1.5 rounded-full font-medium transition">
+          🔀 สลับใหม่
+        </button>
+      </div>
+
+      <div id="puzzleBoard" class="w-72 h-72 mx-auto grid grid-cols-3 gap-1 bg-pastel-pink p-1.5 rounded-2xl shadow-inner"></div>
+      <p id="puzzleStatus" class="text-sm font-bold text-deep-pink mt-3 cute-font min-h-[20px]"></p>
+    </div>
+  </section>
+
+  <!-- 4. Love Coupon Gacha -->
+  <section id="sec-gacha" class="tab-section hidden space-y-4">
+    <div class="bg-white rounded-3xl p-6 shadow-md border border-pastel-pink/60 text-center">
+      <h2 class="text-xl font-bold text-deep-pink cute-font mb-1">🎟️ ตู้สุ่มคูปองตามใจเธอ</h2>
+      <p class="text-xs text-choco/70 mb-5">กดสุ่มได้เลย! ได้ใบไหนแคปจอมาแลกกับเค้าได้ทันที</p>
+
+      <div id="gachaMachine" class="w-44 h-44 mx-auto bg-gradient-to-b from-soft-pink to-pastel-pink rounded-3xl border-4 border-white shadow-lg flex flex-col items-center justify-center mb-5 relative">
+        <span class="text-6xl mb-1">🎁</span>
+        <span class="text-xs font-bold text-deep-pink cute-font">Gacha Love</span>
+      </div>
+
+      <button id="spinGachaBtn" onclick="spinGacha()" class="bg-deep-pink hover:bg-pink-500 active:scale-95 text-white font-bold px-6 py-3 rounded-full shadow-md transition text-sm cute-font">
+        ✨ กดสุ่มคูปองเลย! ✨
+      </button>
+
+      <div id="gachaResultBox" class="hidden mt-5 bg-warm-cream border-2 border-dashed border-deep-pink rounded-2xl p-4">
+        <p class="text-xs text-choco/70 mb-1">ยินดีด้วย! เธอได้รับคูปอง:</p>
+        <h3 id="gachaRewardText" class="text-lg font-bold text-deep-pink cute-font"></h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Memory Mixtape -->
+  <section id="sec-mixtape" class="tab-section hidden space-y-4">
+    <div class="bg-white rounded-3xl p-5 shadow-md border border-pastel-pink/60">
+      <div class="text-center mb-4">
+        <h2 class="text-xl font-bold text-deep-pink cute-font">📼 เทปคาสเซ็ตต์ความทรงจำ</h2>
+        <p class="text-xs text-choco/70">เพลงที่ทำให้นึกถึงเธอเสมอ</p>
+      </div>
+
+      <!-- Vintage Cassette -->
+      <div class="bg-gradient-to-r from-pink-300 via-pastel-pink to-pink-300 rounded-2xl p-4 shadow-inner border-2 border-white mb-4">
+        <div class="bg-warm-cream rounded-xl p-3 text-center shadow-xs">
+          <div class="text-xs font-bold text-deep-pink truncate cute-font mb-2" id="nowPlayingTitle">เลือกเพลงด้านล่างเพื่อเล่น</div>
+          <div class="flex items-center justify-around py-2 bg-choco/90 rounded-lg px-4">
+            <div id="reelLeft" class="w-10 h-10 rounded-full border-4 border-dashed border-white flex items-center justify-center text-white text-xs">⚙️</div>
+            <div class="h-4 w-16 bg-amber-900/60 rounded border border-white/30"></div>
+            <div id="reelRight" class="w-10 h-10 rounded-full border-4 border-dashed border-white flex items-center justify-center text-white text-xs">⚙️</div>
+          </div>
+          <p id="nowPlayingNote" class="text-[11px] text-choco/80 mt-2 italic">"ทุกเพลงมีความหมายเพราะมีเธอ"</p>
+        </div>
+      </div>
+
+      <!-- Custom Song Input -->
+      <div class="flex gap-1.5 mb-4">
+        <input type="text" id="customAudioUrl" placeholder="วางลิงก์เพลง YouTube หรือ .mp3..." class="flex-1 text-xs bg-soft-pink/50 border border-pastel-pink rounded-full px-3 py-2 focus:outline-none">
+        <button onclick="playCustomTapeUrl()" class="bg-deep-pink text-white text-xs px-3.5 py-2 rounded-full font-medium">เล่น</button>
+      </div>
+
+      <!-- Tracklist -->
+      <div id="mixtapeList" class="space-y-2"></div>
+    </div>
+  </section>
+
+  <!-- 6. Secret Postcards -->
+  <section id="sec-postcards" class="tab-section hidden space-y-4">
+    <div class="flex items-center justify-between">
+      <div>
+        <h2 class="text-xl font-bold text-deep-pink cute-font">📮 โปสการ์ดลับ</h2>
+        <p class="text-xs text-choco/70">แตะที่รูปเพื่อพลิกอ่านข้อความด้านหลัง</p>
+      </div>
+      <button onclick="openAddPostcardModal()" class="bg-deep-pink hover:bg-pink-500 text-white text-xs px-3 py-1.5 rounded-full font-medium shadow-xs transition shrink-0">
+        ➕ เพิ่มการ์ด
+      </button>
+    </div>
+    <div id="postcardsGrid" class="grid grid-cols-1 gap-4"></div>
+  </section>
+
+</main>
+
+<!-- Letter Reader Modal -->
+<div id="letterModal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4" onclick="closeLetterModal()">
+  <div class="bg-warm-cream rounded-3xl max-w-sm w-full p-6 shadow-2xl border-2 border-pastel-pink relative" onclick="event.stopPropagation()">
+    <button onclick="closeLetterModal()" class="absolute top-3 right-4 text-choco/60 hover:text-deep-pink text-xl font-bold">✕</button>
+    <div class="text-center mb-3">
+      <span class="text-3xl">💌</span>
+      <h3 id="modalLetterTitle" class="text-lg font-bold text-deep-pink cute-font mt-1"></h3>
+    </div>
+    <div id="modalLetterBody" class="text-sm text-choco leading-relaxed whitespace-pre-line bg-white p-4 rounded-2xl border border-pastel-pink/50 max-h-72 overflow-y-auto"></div>
+  </div>
+</div>
+
+<!-- Add Letter Modal -->
+<div id="addLetterModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4" onclick="closeAddLetterModal()">
+  <div class="bg-warm-cream rounded-3xl max-w-sm w-full p-5 shadow-xl border-2 border-pastel-pink space-y-3" onclick="event.stopPropagation()">
+    <h3 class="text-base font-bold text-deep-pink cute-font text-center">💌 เขียนจดหมายฉบับใหม่</h3>
+    <input type="text" id="newLetterTitle" placeholder="หัวข้อหน้าซอง (เช่น เปิดอ่านตอนคิดถึงกัน 💕)" class="w-full text-xs bg-white p-2.5 rounded-xl border border-pastel-pink focus:outline-none">
+    <textarea id="newLetterContent" rows="4" placeholder="เขียนข้อความในใจถึงเธอตรงนี้ได้เลย..." class="w-full text-xs bg-white p-2.5 rounded-xl border border-pastel-pink focus:outline-none"></textarea>
+    <p id="letterFormError" class="hidden text-[11px] text-red-500 text-center">พิมพ์ข้อความในจดหมายก่อนนะค้าบ 💌</p>
+    <div class="flex gap-2 justify-end">
+      <button onclick="closeAddLetterModal()" class="text-xs px-4 py-2 rounded-full bg-gray-200 text-choco">ยกเลิก</button>
+      <button onclick="saveNewLetter()" class="text-xs px-4 py-2 rounded-full bg-deep-pink text-white font-medium">บันทึกจดหมาย</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Postcard Modal -->
+<div id="addPostcardModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4" onclick="closeAddPostcardModal()">
+  <div class="bg-warm-cream rounded-3xl max-w-sm w-full p-5 shadow-xl border-2 border-pastel-pink space-y-3" onclick="event.stopPropagation()">
+    <h3 class="text-base font-bold text-deep-pink cute-font text-center">✨ สร้างโปสการ์ดใบใหม่</h3>
+    <input type="file" id="newCardImgInput" accept="image/*" class="w-full text-xs bg-white p-2 rounded-xl border border-pastel-pink">
+    <input type="text" id="newCardTitle" placeholder="หัวข้อหน้าการ์ด (เช่น วันครบรอบของเรา)" class="w-full text-xs bg-white p-2.5 rounded-xl border border-pastel-pink focus:outline-none">
+    <textarea id="newCardSecret" rows="3" placeholder="ข้อความลับด้านหลังการ์ด..." class="w-full text-xs bg-white p-2.5 rounded-xl border border-pastel-pink focus:outline-none"></textarea>
+    <div class="flex gap-2 justify-end">
+      <button onclick="closeAddPostcardModal()" class="text-xs px-4 py-2 rounded-full bg-gray-200 text-choco">ยกเลิก</button>
+      <button onclick="saveNewPostcard()" class="text-xs px-4 py-2 rounded-full bg-deep-pink text-white font-medium">บันทึกการ์ด</button>
+    </div>
+  </div>
+</div>
+
+<!-- Custom Delete Confirm Modal -->
+<div id="confirmDeleteModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4" onclick="closeConfirmDeleteModal()">
+  <div class="bg-warm-cream rounded-3xl max-w-xs w-full p-5 shadow-xl border-2 border-pastel-pink text-center space-y-4" onclick="event.stopPropagation()">
+    <div class="text-3xl">🗑️</div>
+    <p id="confirmDeleteText" class="text-sm font-medium text-choco cute-font">ต้องการลบรายการนี้ใช่ไหม?</p>
+    <div class="flex gap-2 justify-center">
+      <button onclick="closeConfirmDeleteModal()" class="text-xs px-4 py-2 rounded-full bg-gray-200 text-choco font-medium">ยกเลิก</button>
+      <button id="confirmDeleteYesBtn" class="text-xs px-4 py-2 rounded-full bg-red-500 text-white font-medium">ลบเลย</button>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom Navigation Bar (6 Menus) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-pastel-pink z-40 px-1 py-1.5 shadow-lg">
+  <div class="max-w-lg mx-auto grid grid-cols-6 gap-0.5 text-center">
+    <button onclick="switchTab('home', this)" class="nav-btn active flex flex-col items-center py-1 rounded-xl text-deep-pink bg-soft-pink/70 font-bold">
+      <span class="text-lg">⏳</span>
+      <span class="text-[10px]">เวลาของเรา</span>
+    </button>
+    <button onclick="switchTab('letters', this)" class="nav-btn flex flex-col items-center py-1 rounded-xl text-choco/70 hover:text-deep-pink">
+      <span class="text-lg">💌</span>
+      <span class="text-[10px]">จดหมาย</span>
+    </button>
+    <button onclick="switchTab('puzzle', this)" class="nav-btn flex flex-col items-center py-1 rounded-xl text-choco/70 hover:text-deep-pink">
+      <span class="text-lg">🧩</span>
+      <span class="text-[10px]">จิ๊กซอว์</span>
+    </button>
+    <button onclick="switchTab('gacha', this)" class="nav-btn flex flex-col items-center py-1 rounded-xl text-choco/70 hover:text-deep-pink">
+      <span class="text-lg">🎟️</span>
+      <span class="text-[10px]">สุ่มคูปอง</span>
+    </button>
+    <button onclick="switchTab('mixtape', this)" class="nav-btn flex flex-col items-center py-1 rounded-xl text-choco/70 hover:text-deep-pink">
+      <span class="text-lg">📼</span>
+      <span class="text-[10px]">เทปเพลง</span>
+    </button>
+    <button onclick="switchTab('postcards', this)" class="nav-btn flex flex-col items-center py-1 rounded-xl text-choco/70 hover:text-deep-pink">
+      <span class="text-lg">📮</span>
+      <span class="text-[10px]">โปสการ์ด</span>
+    </button>
+  </div>
+</nav>
+
+<script>
+// =========================================================================
+// ★★★ ข้อมูลตั้งค่าส่วนตัว (แก้ไขวันที่ ชื่อ และข้อความตรงนี้ได้) ★★★
+// =========================================================================
+const CONFIG = {
+  startDate: "2025-12-17T00:00:00", // 17 ธันวาคม 2568
+  localBgmFile: "song.mp3",
+  youtubeBgmId: "cAaPHNeLTM4"
+};
+
+let loveLettersData = [
+  {
+    title: "เปิดอ่านตอนคิดถึงกัน 💕",
+    preview: "ถ้าเธอกำลังเปิดซองนี้อยู่ แสดงว่าคิดถึงเค้าใช่ไหม...",
+    content: "ถ้าเธอกำลังเปิดซองนี้อยู่ แสดงว่ากำลังคิดถึงเค้าอยู่แน่ๆ เลยใช่ไหม?\n\nอยากบอกว่าเค้าก็คิดถึงเธอเหมือนกันนะ ไม่ว่าจะยุ่งแค่ไหน ในหัวก็มีแต่เรื่องของเธอเสมอ รีบเคลียร์งานแล้วมาเจอกันนะ กอดๆ 🧸💗"
+  },
+  {
+    title: "เปิดอ่านตอนเหนื่อยจากงาน 🌿",
+    preview: "คนเก่งของเค้า วันนี้เหนื่อยมากไหม...",
+    content: "คนเก่งของเค้า วันนี้เหนื่อยมากไหม?\n\nไม่ว่าวันนี้เธอจะเจอเรื่องอะไรมา อยากให้รู้ไว้ว่าเธอทำดีที่สุดแล้วนะ พักผ่อนเยอะๆ กินของอร่อยๆ เค้าอยู่ข้างๆ เธอตรงนี้เสมอ พร้อมรับฟังทุกเรื่องเลยนะคนเก่ง ✨"
+  },
+  {
+    title: "ความในใจถึงเธอ 💌",
+    preview: "ขอบคุณที่เข้ามาเป็นเรื่องราวดีๆ ในทุกวัน...",
+    content: "ขอบคุณที่เข้ามาเป็นเรื่องราวดีๆ ในชีวิตเค้านะ\n\nตั้งแต่วันแรกที่เราคบกัน จนถึงวันนี้ ทุกวันธรรมดามันพิเศษขึ้นมากจริงๆ เพราะมีเธออยู่ด้วย อยู่ด้วยกันแบบนี้ไปนานๆ เลยนะ รักเธอที่สุดเลย 💖"
+  }
+];
+
+const COUPONS = [
+  "🍲 พาไปกินชาบู / หมูกระทะ ฟรี 1 มื้อ!",
+  "💆‍♂️ นวดไหล่ให้ 15 นาทีแบบฟินๆ",
+  "👑 คูปองตามใจเธอ 1 วันเต็ม (ห้ามขัดใจ!)",
+  "🧺 ซักผ้าให้ 1 ครั้งแบบไม่มีบ่น",
+  "😘 หอมแก้ม 5 ทีรวด!",
+  "🤐 คูปองงดบ่น 1 วันเต็ม",
+  "🧋 เลี้ยงชานมไข่มุก / ของหวาน 1 แก้ว",
+  "🎬 ดูหนังด้วยกันตามใจเธอเลือก 1 เรื่อง"
+];
+
+const MIXTAPE_TRACKS = [
+  {
+    title: "วันที่พิเศษ (ดูดฝุ่น) - Morvasu x Violette",
+    note: "เรื่องธรรมดาๆ แต่พิเศษเพราะมีเธอ 💕",
+    ytId: "cAaPHNeLTM4",
+    localFile: "song.mp3"
+  },
+  {
+    title: "เพลงกล่องดนตรีของเรา (Music Box)",
+    note: "ทำนองเบาๆ เอาไว้ฟังตอนคิดถึงกัน 🎶",
+    isMusicBox: true
+  },
+  {
+    title: "ทุกวันที่มีเธอ - Playlist พิเศษ",
+    note: "ขอบคุณที่คอยดูแลกันในทุกๆ วันนะ 🧸",
+    ytId: "cAaPHNeLTM4"
+  }
+];
+
+let postcardsData = [
+  {
+    img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80",
+    title: "วันแรกที่เราเริ่มคุยกัน ✨",
+    secret: "จำได้ไหมว่าตอนนั้นเขินแค่ไหน ขอบคุณที่เปิดใจให้เค้านะ 💕"
+  },
+  {
+    img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80",
+    title: "โมเมนต์สุดพิเศษของเรา 🌷",
+    secret: "ไม่ว่าจะไปที่ไหน แค่มีเธอไปด้วย ก็เป็นที่ที่ชอบที่สุดแล้ว 🧸"
+  }
+];
+
+// =========================================================================
+// Toast & Confirm Helpers
+// =========================================================================
+let toastTimer = null;
+function showToast(msg) {
+  const banner = document.getElementById('toastBanner');
+  banner.textContent = msg;
+  banner.classList.remove('hidden');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => banner.classList.add('hidden'), 2400);
+}
+
+let pendingDeleteCallback = null;
+function openConfirmDeleteModal(message, onConfirm) {
+  document.getElementById('confirmDeleteText').textContent = message;
+  pendingDeleteCallback = onConfirm;
+  document.getElementById('confirmDeleteModal').classList.remove('hidden');
+}
+
+function closeConfirmDeleteModal() {
+  document.getElementById('confirmDeleteModal').classList.add('hidden');
+  pendingDeleteCallback = null;
+}
+
+document.getElementById('confirmDeleteYesBtn').addEventListener('click', async () => {
+  if (pendingDeleteCallback) await pendingDeleteCallback();
+  closeConfirmDeleteModal();
+});
+
+// =========================================================================
+// IndexedDB Storage
+// =========================================================================
+const PhotoDB = {
+  dbName: 'CoupleSurprisePreviewDB',
+  storeName: 'mediaStore',
+  open() {
+    return new Promise((resolve, reject) => {
+      const req = indexedDB.open(this.dbName, 1);
+      req.onupgradeneeded = (e) => e.target.result.createObjectStore(this.storeName);
+      req.onsuccess = (e) => resolve(e.target.result);
+      req.onerror = (e) => reject(e);
+    });
+  },
+  async set(key, val) {
+    try {
+      const db = await this.open();
+      return new Promise((resolve) => {
+        const tx = db.transaction(this.storeName, 'readwrite');
+        tx.objectStore(this.storeName).put(val, key);
+        tx.oncomplete = () => resolve(true);
+      });
+    } catch (e) {}
+  },
+  async get(key) {
+    try {
+      const db = await this.open();
+      return new Promise((resolve) => {
+        const tx = db.transaction(this.storeName, 'readonly');
+        const req = tx.objectStore(this.storeName).get(key);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => resolve(null);
+      });
+    } catch (e) { return null; }
+  }
+};
+
+function compressImage(file, maxWidth = 800) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let w = img.width, h = img.height;
+        if (w > maxWidth) { h = Math.round((h * maxWidth) / w); w = maxWidth; }
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', 0.82));
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// =========================================================================
+// Audio & Music Box System
+// =========================================================================
+let audioCtx = null;
+let isMusicPlaying = false;
+let musicBoxInterval = null;
+let ytPlayer = null;
+let ytReady = false;
+let hasCustomAudioFile = false;
+
+function initAudioContext() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+}
+
+function playSfx(type = 'pop') {
+  try {
+    initAudioContext();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    const now = audioCtx.currentTime;
+    if (type === 'pop') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(520, now);
+      osc.frequency.exponentialRampToValueAtTime(780, now + 0.08);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+      osc.start(now); osc.stop(now + 0.09);
+    } else if (type === 'win') {
+      osc.type = 'triangle';
+      [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+        osc.frequency.setValueAtTime(freq, now + i * 0.09);
+      });
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+      osc.start(now); osc.stop(now + 0.45);
+    }
+  } catch (e) {}
+}
+
+function startMusicBox() {
+  initAudioContext();
+  stopMusicBox();
+  const notes = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 880.00, 698.46, 523.25, 659.25, 783.99, 1046.50];
+  let step = 0;
+  musicBoxInterval = setInterval(() => {
+    if (!isMusicPlaying) return;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = notes[step % notes.length];
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    const now = audioCtx.currentTime;
+    gain.gain.setValueAtTime(0.06, now);
+    gain.gain.exponentialRampToValueAtTime(0.0008, now + 0.55);
+    osc.start(now);
+    osc.stop(now + 0.56);
+    step++;
+  }, 480);
+}
+
+function stopMusicBox() {
+  if (musicBoxInterval) { clearInterval(musicBoxInterval); musicBoxInterval = null; }
+}
+
+const ytScript = document.createElement('script');
+ytScript.src = "https://www.youtube.com/iframe_api";
+document.head.appendChild(ytScript);
+
+function onYouTubeIframeAPIReady() {
+  ytPlayer = new YT.Player('ytPlayer', {
+    height: '0', width: '0',
+    videoId: CONFIG.youtubeBgmId,
+    playerVars: { autoplay: 0, loop: 1, playlist: CONFIG.youtubeBgmId },
+    events: { onReady: () => { ytReady = true; } }
+  });
+}
+
+function handleBgmUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  const audioEl = document.getElementById('bgAudioPlayer');
+  audioEl.src = url;
+  hasCustomAudioFile = true;
+  if (ytReady && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
+  stopMusicBox();
+  audioEl.play().then(() => {
+    isMusicPlaying = true;
+    updateBgmButtonUI();
+    showToast("กำลังเล่นไฟล์เพลงที่เลือก 🎵");
+    spawnHearts(5);
+  }).catch(() => {});
+}
+
+function toggleBackgroundMusic() {
+  const audioEl = document.getElementById('bgAudioPlayer');
+  if (!isMusicPlaying) {
+    isMusicPlaying = true;
+    if (hasCustomAudioFile && audioEl.src) {
+      audioEl.play();
+    } else {
+      audioEl.src = CONFIG.localBgmFile;
+      audioEl.play().catch(() => {
+        if (ytReady && ytPlayer.playVideo) {
+          ytPlayer.playVideo();
+        } else {
+          startMusicBox();
+        }
+      });
+    }
+    spawnHearts(4);
+  } else {
+    isMusicPlaying = false;
+    audioEl.pause();
+    if (ytReady && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
+    stopMusicBox();
+  }
+  updateBgmButtonUI();
+}
+
+function updateBgmButtonUI() {
+  document.getElementById('bgmIcon').textContent = isMusicPlaying ? '🔊' : '🔇';
+  document.getElementById('bgmText').textContent = isMusicPlaying ? 'ปิดเพลง' : 'เปิดเพลง';
+}
+
+// =========================================================================
+// Navigation
+// =========================================================================
+function switchTab(tabName, btnEl) {
+  playSfx('pop');
+  document.querySelectorAll('.tab-section').forEach(sec => sec.classList.add('hidden'));
+  document.getElementById('sec-' + tabName).classList.remove('hidden');
+  
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    b.classList.remove('active', 'text-deep-pink', 'bg-soft-pink/70', 'font-bold');
+    b.classList.add('text-choco/70');
+  });
+  if (btnEl) {
+    btnEl.classList.add('active', 'text-deep-pink', 'bg-soft-pink/70', 'font-bold');
+    btnEl.classList.remove('text-choco/70');
+  }
+}
+
+// =========================================================================
+// 1. Love Counter & Gallery
+// =========================================================================
+function updateLoveCounter() {
+  const start = new Date(CONFIG.startDate).getTime();
+  const now = Date.now();
+  let diff = Math.max(0, now - start);
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  diff -= days * (1000 * 60 * 60 * 24);
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  diff -= hours * (1000 * 60 * 60);
+  const minutes = Math.floor(diff / (1000 * 60));
+  diff -= minutes * (1000 * 60);
+  const seconds = Math.floor(diff / 1000);
+
+  document.getElementById('cntDays').textContent = days;
+  document.getElementById('cntHours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cntMinutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('cntSeconds').textContent = String(seconds).padStart(2, '0');
+}
+
+async function updateMainPhoto(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const dataUrl = await compressImage(file);
+  document.getElementById('mainCoupleImg').src = dataUrl;
+  await PhotoDB.set('mainCoupleImg', dataUrl);
+  puzzleImageUrl = dataUrl;
+  initPuzzle();
+  showToast("เปลี่ยนรูปคู่เรียบร้อยแล้ว 💕");
+  spawnHearts(6);
+}
+
+let galleryPhotos = [];
+async function addGalleryPhotos(e) {
+  const files = Array.from(e.target.files);
+  if (!files.length) return;
+  for (const f of files) {
+    const dataUrl = await compressImage(f, 600);
+    galleryPhotos.push(dataUrl);
+  }
+  await PhotoDB.set('galleryPhotos', galleryPhotos);
+  renderGallery();
+  showToast("เพิ่มรูปลงอัลบั้มแล้ว 📸");
+  spawnHearts(5);
+}
+
+function renderGallery() {
+  const grid = document.getElementById('galleryGrid');
+  if (!galleryPhotos.length) {
+    grid.innerHTML = '<p class="col-span-3 text-center text-xs text-choco/50 py-4">กดปุ่ม "+ เพิ่มรูปคู่" เพื่อเก็บรูปน่ารักๆ ของเราไว้ตรงนี้ได้เลยนะ 💗</p>';
+    return;
+  }
+  grid.innerHTML = galleryPhotos.map((src, idx) => `
+    <div class="relative aspect-square rounded-xl overflow-hidden border border-pastel-pink">
+      <img src="${src}" class="w-full h-full object-cover">
+      <button onclick="removeGalleryPhoto(${idx})" class="absolute top-1 right-1 bg-black/50 text-white text-[10px] w-5 h-5 rounded-full">✕</button>
+    </div>
+  `).join('');
+}
+
+async function removeGalleryPhoto(idx) {
+  galleryPhotos.splice(idx, 1);
+  await PhotoDB.set('galleryPhotos', galleryPhotos);
+  renderGallery();
+}
+
+// =========================================================================
+// 2. Love Letters (เพิ่ม + ลบจดหมายได้)
+// =========================================================================
+function renderLetters() {
+  const container = document.getElementById('lettersContainer');
+  if (!loveLettersData.length) {
+    container.innerHTML = '<p class="text-center text-xs text-choco/50 py-8 bg-white rounded-3xl border border-pastel-pink/50">ยังไม่มีซองจดหมาย กดปุ่ม "+ เพิ่มจดหมาย" ด้านบนเพื่อเขียนให้เธอได้เลยนะ 💌</p>';
+    return;
+  }
+  container.innerHTML = loveLettersData.map((l, idx) => `
+    <div class="envelope-wrapper" onclick="openLetter(${idx}, this)">
+      <button onclick="deleteLetter(${idx}, event)" title="ลบจดหมาย" class="absolute top-2.5 right-2.5 z-20 bg-white/95 hover:bg-red-500 hover:text-white text-choco/70 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shadow-sm transition">
+        🗑️
+      </button>
+      <div class="envelope">
+        <div class="envelope-flap"></div>
+        <div class="letter-sheet">
+          <div class="font-bold text-deep-pink text-sm cute-font pr-8">${l.title}</div>
+          <p class="text-xs text-choco/70 mt-1 line-clamp-2">${l.preview || l.content}</p>
+        </div>
+        <div class="envelope-pocket flex items-end justify-center pb-3">
+          <span class="bg-white/95 text-deep-pink text-xs px-3.5 py-1 rounded-full font-bold shadow-xs cute-font">แตะเพื่อเปิดอ่าน 💌</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openLetter(idx, wrapperEl) {
+  playSfx('pop');
+  const env = wrapperEl.querySelector('.envelope');
+  env.classList.add('open');
+  setTimeout(() => {
+    document.getElementById('modalLetterTitle').textContent = loveLettersData[idx].title;
+    document.getElementById('modalLetterBody').textContent = loveLettersData[idx].content;
+    document.getElementById('letterModal').classList.remove('hidden');
+    spawnHearts(5);
+  }, 420);
+}
+
+function closeLetterModal() {
+  document.getElementById('letterModal').classList.add('hidden');
+  document.querySelectorAll('.envelope').forEach(e => e.classList.remove('open'));
+}
+
+function openAddLetterModal() {
+  document.getElementById('newLetterTitle').value = "";
+  document.getElementById('newLetterContent').value = "";
+  document.getElementById('letterFormError').classList.add('hidden');
+  document.getElementById('addLetterModal').classList.remove('hidden');
+}
+
+function closeAddLetterModal() {
+  document.getElementById('addLetterModal').classList.add('hidden');
+}
+
+async function saveNewLetter() {
+  const title = document.getElementById('newLetterTitle').value.trim() || "จดหมายถึงคนพิเศษ 💕";
+  const content = document.getElementById('newLetterContent').value.trim();
+  if (!content) {
+    document.getElementById('letterFormError').classList.remove('hidden');
+    return;
+  }
+  const preview = content.length > 45 ? content.substring(0, 45) + "..." : content;
+  loveLettersData.unshift({ title, preview, content });
+  await PhotoDB.set('loveLettersData', loveLettersData);
+  renderLetters();
+  closeAddLetterModal();
+  playSfx('win');
+  showToast("เพิ่มซองจดหมายใหม่แล้ว 💌");
+  spawnHearts(6);
+}
+
+function deleteLetter(idx, e) {
+  e.stopPropagation();
+  playSfx('pop');
+  openConfirmDeleteModal("ต้องการลบซองจดหมายนี้ใช่ไหม?", async () => {
+    loveLettersData.splice(idx, 1);
+    await PhotoDB.set('loveLettersData', loveLettersData);
+    renderLetters();
+    showToast("ลบจดหมายเรียบร้อยแล้ว");
+  });
+}
+
+// =========================================================================
+// 3. Jigsaw Puzzle 3x3
+// =========================================================================
+let puzzleImageUrl = "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80";
+let puzzleOrder = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+let selectedTileIdx = null;
+
+function initPuzzle() {
+  puzzleOrder = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  shufflePuzzle();
+}
+
+function shufflePuzzle() {
+  playSfx('pop');
+  selectedTileIdx = null;
+  document.getElementById('puzzleStatus').textContent = "";
+  for (let i = puzzleOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [puzzleOrder[i], puzzleOrder[j]] = [puzzleOrder[j], puzzleOrder[i]];
+  }
+  renderPuzzle();
+}
+
+function renderPuzzle() {
+  const board = document.getElementById('puzzleBoard');
+  board.innerHTML = puzzleOrder.map((pieceIdx, posIdx) => {
+    const row = Math.floor(pieceIdx / 3);
+    const col = pieceIdx % 3;
+    const isSelected = selectedTileIdx === posIdx;
+    return `
+      <div onclick="tapPuzzleTile(${posIdx})" 
+           class="w-full h-full rounded-lg cursor-pointer transition-transform ${isSelected ? 'ring-4 ring-deep-pink scale-95 z-10' : ''}"
+           style="background-image: url('${puzzleImageUrl}'); background-size: 300% 300%; background-position: ${col * 50}% ${row * 50}%;">
+      </div>
+    `;
+  }).join('');
+}
+
+function tapPuzzleTile(posIdx) {
+  playSfx('pop');
+  if (selectedTileIdx === null) {
+    selectedTileIdx = posIdx;
+    renderPuzzle();
+  } else if (selectedTileIdx === posIdx) {
+    selectedTileIdx = null;
+    renderPuzzle();
+  } else {
+    [puzzleOrder[selectedTileIdx], puzzleOrder[posIdx]] = [puzzleOrder[posIdx], puzzleOrder[selectedTileIdx]];
+    selectedTileIdx = null;
+    renderPuzzle();
+    checkPuzzleWin();
+  }
+}
+
+function checkPuzzleWin() {
+  const isWin = puzzleOrder.every((val, idx) => val === idx);
+  if (isWin) {
+    playSfx('win');
+    document.getElementById('puzzleStatus').textContent = "🎉 เก่งมากเลยคนเก่ง! ต่อภาพคู่ของเราสำเร็จแล้ว 💕";
+    spawnHearts(15);
+  }
+}
+
+async function loadCustomPuzzle(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  puzzleImageUrl = await compressImage(file, 600);
+  initPuzzle();
+}
+
+// =========================================================================
+// 4. Coupon Gacha
+// =========================================================================
+function spinGacha() {
+  const btn = document.getElementById('spinGachaBtn');
+  const machine = document.getElementById('gachaMachine');
+  const resultBox = document.getElementById('gachaResultBox');
+  
+  btn.disabled = true;
+  resultBox.classList.add('hidden');
+  machine.classList.add('shaking');
+  playSfx('pop');
+
+  setTimeout(() => {
+    machine.classList.remove('shaking');
+    const reward = COUPONS[Math.floor(Math.random() * COUPONS.length)];
+    document.getElementById('gachaRewardText').textContent = reward;
+    resultBox.classList.remove('hidden');
+    btn.disabled = false;
+    playSfx('win');
+    spawnHearts(10);
+  }, 1050);
+}
+
+// =========================================================================
+// 5. Memory Mixtape
+// =========================================================================
+function renderMixtape() {
+  const list = document.getElementById('mixtapeList');
+  list.innerHTML = MIXTAPE_TRACKS.map((t, idx) => `
+    <div onclick="playTapeTrack(${idx})" class="flex items-center justify-between p-3 rounded-2xl bg-soft-pink/50 hover:bg-soft-pink cursor-pointer transition border border-pastel-pink/50">
+      <div class="pr-2">
+        <div class="text-xs font-bold text-choco">${idx + 1}. ${t.title}</div>
+        <div class="text-[11px] text-choco/70">${t.note}</div>
+      </div>
+      <span class="bg-deep-pink text-white text-xs w-7 h-7 rounded-full flex items-center justify-center shrink-0">▶</span>
+    </div>
+  `).join('');
+}
+
+function setTapeSpinning(active) {
+  const l = document.getElementById('reelLeft');
+  const r = document.getElementById('reelRight');
+  if (active) { l.classList.add('spinning'); r.classList.add('spinning'); }
+  else { l.classList.remove('spinning'); r.classList.remove('spinning'); }
+}
+
+function playTapeTrack(idx) {
+  const track = MIXTAPE_TRACKS[idx];
+  document.getElementById('nowPlayingTitle').textContent = track.title;
+  document.getElementById('nowPlayingNote').textContent = `"${track.note}"`;
+  setTapeSpinning(true);
+  playSfx('pop');
+
+  const audioEl = document.getElementById('bgAudioPlayer');
+  audioEl.pause();
+  stopMusicBox();
+
+  if (track.isMusicBox) {
+    isMusicPlaying = true;
+    updateBgmButtonUI();
+    startMusicBox();
+  } else if (track.localFile) {
+    audioEl.src = track.localFile;
+    audioEl.play().then(() => {
+      isMusicPlaying = true;
+      updateBgmButtonUI();
+    }).catch(() => {
+      if (ytReady && track.ytId) { ytPlayer.loadVideoById(track.ytId); isMusicPlaying = true; updateBgmButtonUI(); }
+      else { isMusicPlaying = true; updateBgmButtonUI(); startMusicBox(); }
+    });
+  } else if (ytReady && track.ytId) {
+    ytPlayer.loadVideoById(track.ytId);
+    isMusicPlaying = true;
+    updateBgmButtonUI();
+  } else {
+    isMusicPlaying = true;
+    updateBgmButtonUI();
+    startMusicBox();
+  }
+}
+
+function playCustomTapeUrl() {
+  const url = document.getElementById('customAudioUrl').value.trim();
+  if (!url) return;
+  setTapeSpinning(true);
+  document.getElementById('nowPlayingTitle').textContent = "เพลงพิเศษที่เลือกเอง 🎵";
+  const ytMatch = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  if (ytMatch && ytReady) {
+    document.getElementById('bgAudioPlayer').pause();
+    stopMusicBox();
+    ytPlayer.loadVideoById(ytMatch[1]);
+    isMusicPlaying = true;
+    updateBgmButtonUI();
+  } else {
+    if (ytReady && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
+    stopMusicBox();
+    const audioEl = document.getElementById('bgAudioPlayer');
+    audioEl.src = url;
+    audioEl.play();
+    isMusicPlaying = true;
+    updateBgmButtonUI();
+  }
+}
+
+// =========================================================================
+// 6. Secret Postcards (เพิ่ม + ลบโปสการ์ดได้)
+// =========================================================================
+function renderPostcards() {
+  const grid = document.getElementById('postcardsGrid');
+  if (!postcardsData.length) {
+    grid.innerHTML = '<p class="text-center text-xs text-choco/50 py-8 bg-white rounded-3xl border border-pastel-pink/50">ยังไม่มีโปสการ์ด กดปุ่ม "+ เพิ่มการ์ด" ด้านบนเพื่อสร้างความทรงจำใหม่ได้เลยนะ 📮</p>';
+    return;
+  }
+  grid.innerHTML = postcardsData.map((card, idx) => `
+    <div class="flip-card" onclick="this.classList.toggle('flipped'); playSfx('pop');">
+      <button onclick="deletePostcard(${idx}, event)" title="ลบโปสการ์ด" class="absolute top-2.5 right-2.5 z-20 bg-white/95 hover:bg-red-500 hover:text-white text-choco/70 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shadow-md transition">
+        🗑️
+      </button>
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-white">
+          <img src="${card.img}" onerror="this.src='https://placehold.co/400x300/FFD1DC/5C4033?text=Memory'" class="w-full h-56 object-cover">
+          <div class="p-3 bg-white flex items-center justify-between">
+            <span class="font-bold text-sm text-choco cute-font truncate pr-2">${card.title}</span>
+            <span class="text-[11px] text-deep-pink shrink-0">แตะเพื่อพลิก ↻</span>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <span class="text-3xl mb-2">💌</span>
+          <h4 class="font-bold text-deep-pink text-sm cute-font mb-2">${card.title}</h4>
+          <p class="text-sm text-choco leading-relaxed">${card.secret}</p>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openAddPostcardModal() {
+  document.getElementById('newCardImgInput').value = "";
+  document.getElementById('newCardTitle').value = "";
+  document.getElementById('newCardSecret').value = "";
+  document.getElementById('addPostcardModal').classList.remove('hidden');
+}
+
+function closeAddPostcardModal() {
+  document.getElementById('addPostcardModal').classList.add('hidden');
+}
+
+async function saveNewPostcard() {
+  const file = document.getElementById('newCardImgInput').files[0];
+  const title = document.getElementById('newCardTitle').value.trim() || "ความทรงจำของเรา 💕";
+  const secret = document.getElementById('newCardSecret').value.trim() || "รักเธอที่สุดเลยนะ 🧸";
+  let imgUrl = "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80";
+  if (file) imgUrl = await compressImage(file, 600);
+  
+  postcardsData.unshift({ img: imgUrl, title, secret });
+  await PhotoDB.set('postcardsData', postcardsData);
+  renderPostcards();
+  closeAddPostcardModal();
+  playSfx('win');
+  showToast("เพิ่มโปสการ์ดใบใหม่แล้ว 📮");
+  spawnHearts(6);
+}
+
+function deletePostcard(idx, e) {
+  e.stopPropagation();
+  playSfx('pop');
+  openConfirmDeleteModal("ต้องการลบโปสการ์ดใบนี้ใช่ไหม?", async () => {
+    postcardsData.splice(idx, 1);
+    await PhotoDB.set('postcardsData', postcardsData);
+    renderPostcards();
+    showToast("ลบโปสการ์ดเรียบร้อยแล้ว");
+  });
+}
+
+function spawnHearts(count = 6) {
+  const emojis = ['💖', '💕', '🧸', '💗', '✨'];
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('div');
+    el.className = 'floating-heart';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * 90 + 5 + 'vw';
+    el.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 3500);
+  }
+}
+
+// =========================================================================
+// Initialize on Load
+// =========================================================================
+window.onload = async function() {
+  updateLoveCounter();
+  setInterval(updateLoveCounter, 1000);
+
+  const savedMainImg = await PhotoDB.get('mainCoupleImg');
+  if (savedMainImg) {
+    document.getElementById('mainCoupleImg').src = savedMainImg;
+    puzzleImageUrl = savedMainImg;
+  }
+  const savedGallery = await PhotoDB.get('galleryPhotos');
+  if (savedGallery && savedGallery.length) {
+    galleryPhotos = savedGallery;
+    renderGallery();
+  }
+  const savedLetters = await PhotoDB.get('loveLettersData');
+  if (savedLetters !== null && savedLetters !== undefined) {
+    loveLettersData = savedLetters;
+  }
+  const savedCards = await PhotoDB.get('postcardsData');
+  if (savedCards !== null && savedCards !== undefined) {
+    postcardsData = savedCards;
+  }
+
+  renderLetters();
+  initPuzzle();
+  renderMixtape();
+  renderPostcards();
+};
+</script>
+</body>
+</html>
+```
